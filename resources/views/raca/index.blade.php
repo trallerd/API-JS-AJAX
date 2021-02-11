@@ -133,7 +133,7 @@
         $.getJSON('/api/raca/' + id, function(data) {
             $('#modalInfo').modal().find('.modal-body').append("<b>ID:</b> " + data.id + "<br><br>");
             $('#modalInfo').modal().find('.modal-body').append("<b>NOME:</b> " + data.nome + "<br><br>");
-            $('#modalInfo').modal().find('.modal-body').append("<b>DESCRIÇÃO</b>: " + data.descricao);
+            $('#modalInfo').modal().find('.modal-body').append("<b>DESCRIÇÃO</b>: " + data.descricao + "<br>");
             $('#modalInfo').modal('show');
         });
     }
@@ -176,7 +176,7 @@
             context: this,
             data: raca,
             success: function(data) {
-                linhas = $('#tabela>tbody>tr');
+                linhas = $("#tabela>tbody>tr");
                 e = linhas.filter(function(i, e) {
                     return e.cells[0].textContent == id;
                 });
@@ -204,7 +204,7 @@
                     return elemento.cells[0].textContent == id;
                 });
                 if (e) {
-                    e.remove();
+                    e.remove(e);
                 }
             },
             error: function(error) {
@@ -222,7 +222,7 @@
             "<td>" +
             "<a nohref style='cursor:pointer' onClick='editar(" + raca.id + ")'><img src={{ asset('img/icons/edit.svg') }}></a>" +
             "<a nohref style='cursor:pointer' onClick='visualizar(" + raca.id + ")'><img src={{ asset('img/icons/info.svg') }}></a>" +
-            "<a nohref style='cursor:pointer' onClick='visualizar(" + raca.id +raca.nome +")'><img src={{ asset('img/icons/delete.svg') }}></a>" +
+            "<a nohref style='cursor:pointer' onClick='remover(" + raca.id+ ")'><img src={{ asset('img/icons/delete.svg') }}></a>" +
             "</td>" +
             "</tr>";
 
