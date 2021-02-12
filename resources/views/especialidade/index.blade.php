@@ -192,7 +192,7 @@
 
     function remove() {
 
-        var id = $('#id_remove').val();
+        var id = $("#id_remove").val();
 
         $.ajax({
             type: "DELETE",
@@ -200,15 +200,15 @@
             context: this,
             success: function() {
                 linhas = $("#tabela>tbody>tr");
-                e = linhas.filter(function(i, elemento) {
-                    return elemento.cells[0].textContent == id;
+                e = linhas.filter(function(i, e) {
+                    return e.cells[0].textContent == id;
                 });
                 if (e) {
-                    e.remove();
+                    e.remove()
                 }
             },
             error: function(error) {
-                alert(error);
+                alert("ERROR - DELETE");
             }
         });
 

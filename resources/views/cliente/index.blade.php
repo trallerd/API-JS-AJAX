@@ -194,7 +194,8 @@
                     return e.cells[0].textContent == id;
                 });
                 if (e) {
-                    e[0].cells[1].textContent = data.nome;
+                    // [ALTERAÇÃO] (mudei "data.nome" para "cliente.nome")
+                    e[0].cells[1].textContent = cliente.nome;
                 }
             },
             error: function(error) {

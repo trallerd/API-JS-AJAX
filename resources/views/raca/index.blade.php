@@ -192,7 +192,7 @@
 
     function remove() {
 
-        var id = $('#id_remove').val();
+        var id = $("#id_remove").val();
 
         $.ajax({
             type: "DELETE",
@@ -200,15 +200,15 @@
             context: this,
             success: function() {
                 linhas = $("#tabela>tbody>tr");
-                e = linhas.filter(function(i, elemento) {
-                    return elemento.cells[0].textContent == id;
+                e = linhas.filter(function(i, e) {
+                    return e.cells[0].textContent == id;
                 });
                 if (e) {
-                    e.remove(e);
+                    e.remove()
                 }
             },
             error: function(error) {
-                alert(error.responseText);
+                alert("ERROR - DELETE");
             }
         });
 
@@ -217,12 +217,12 @@
 
     function getLin(raca) {
         var linha =
-            "<tr style='text-align: center'>" +
+        "<tr style='text-align: center'>" +
             "<td>" + raca.nome + "</td>" +
             "<td>" +
             "<a nohref style='cursor:pointer' onClick='editar(" + raca.id + ")'><img src={{ asset('img/icons/edit.svg') }}></a>" +
             "<a nohref style='cursor:pointer' onClick='visualizar(" + raca.id + ")'><img src={{ asset('img/icons/info.svg') }}></a>" +
-            "<a nohref style='cursor:pointer' onClick='remover(" + raca.id+ ")'><img src={{ asset('img/icons/delete.svg') }}></a>" +
+            "<a nohref style='cursor:pointer' onClick='remover(" + raca.id +raca.nome + ")'><img src={{ asset('img/icons/delete.svg') }}></a>" +
             "</td>" +
             "</tr>";
 
